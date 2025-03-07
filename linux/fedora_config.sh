@@ -133,3 +133,11 @@ cd "$theme_name"
 ./install.sh -t purple -c dark -s compact -i simple --tweaks black
 cd ..
 rm -rf "$theme_name"
+
+# Installing Anaconda
+
+wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+
+chmod +x Anaconda3-2024.10-1-Linux-x86_64.sh
+
+./Anaconda3-2024.10-1-Linux-x86_64.sh
