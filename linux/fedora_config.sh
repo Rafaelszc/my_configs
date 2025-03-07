@@ -41,6 +41,7 @@ FLATPAK_PROGRAMS=(
 	"org.gnome.Builder"
 	"org.qbittorrent.qBittorrent"
 	"org.kde.krita"
+	"com.visualstudio.code"
 )
 
 # List of GNOME extensions repo
