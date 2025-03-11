@@ -20,6 +20,7 @@ PIP_PACKAGES=(
 	"seaborn"
 	"discord"
 	"flask"
+	"click"
 )
 
 # Flatpak programs list
