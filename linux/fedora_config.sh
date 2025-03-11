@@ -41,6 +41,7 @@ FLATPAK_PROGRAMS=(
 	"org.gnome.Builder"
 	"org.qbittorrent.qBittorrent"
 	"org.kde.krita"
+	"com.visualstudio.code"
 )
 
 # List of GNOME extensions repo
@@ -50,6 +51,45 @@ GNOME_EXTENSIONS=(
 	"https://github.com/eonpatapon/gnome-shell-extension-caffeine.git"
 	"https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git"
 	"https://github.com/tuberry/extension-list.git"
+)
+
+# List of vscode's extensions
+
+VSCODE_EXTENSIONS=(
+	"davidanson.vscode-markdownlint"
+	"esbenp.prettier-vscode"
+	"grapecity.gc-excelviewer"
+	"miguelsolorio.min-theme"
+	"miguelsolorio.symbols"
+	"ms-azuretools.vscode-docker"
+	"ms-python.debugpy"
+	"ms-python.python"
+	"ms-python.vscode-pylance"
+	"ms-toolsai.jupyter"
+	"ms-toolsai.jupyter-keymap"
+	"ms-toolsai.jupyter-renderers"
+	"ms-toolsai.vscode-jupyter-cell-tags"
+	"ms-toolsai.vscode-jupyter-slideshow"
+	"ms-vscode.cmake-tools"
+	"ms-vscode.cpptools"
+	"ms-vscode.cpptools-extension-pack"
+	"ms-vscode.cpptools-themes"
+	"ms-vscode.live-server"
+	"oderwat.indent-rainbow"
+	"oracle.oracle-java"
+	"qwtel.sqlite-viewer"
+	"redhat.java"
+	"ritwickdey.liveserver"
+	"twxs.cmake"
+	"visualstudioexptteam.intellicode-api-usage-examples"
+	"visualstudioexptteam.vscodeintellicode"
+	"vscjava.vscode-gradle"
+	"vscjava.vscode-java-debug"
+	"vscjava.vscode-java-dependency"
+	"vscjava.vscode-java-pack"
+	"vscjava.vscode-java-test"
+	"vscjava.vscode-maven"
+	"yzhang.markdown-all-in-one"
 )
 
 # Orchis Theme repo
@@ -133,6 +173,13 @@ cd "$theme_name"
 ./install.sh -t purple -c dark -s compact -i simple --tweaks black
 cd ..
 rm -rf "$theme_name"
+
+# Installing vscode extensions
+
+for extension in "${VSCODE[@]}";
+do
+	flatpak run com.visualstudio.code --install-extension "$extension"
+done
 
 # Installing Anaconda
 
