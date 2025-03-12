@@ -1,0 +1,3 @@
+[submodule "linux/gitig/templates"]
+	path = linux/gitig/templates
+	url = https://github.com/github/gitignore.git
