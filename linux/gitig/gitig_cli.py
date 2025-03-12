@@ -1,7 +1,6 @@
 import click
 from glob import glob
 import sys
-from os import system
 
 @click.command()
 @click.option("-l", help="Language compatible to gitignore")
