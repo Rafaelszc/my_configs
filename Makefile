@@ -5,8 +5,12 @@ fedora_config:
 	chmod +x linux/fedora_config.sh
 	linux/fedora_config.sh
 
-gitig:
+gitig: git_submodule
 	chmod +x linux/gitig/gitig_func.sh
 	linux/gitig/gitig_func.sh
 
 	source ~/.bashrc
+
+git_submodule:
+	git submodule init
+	git submodule update
