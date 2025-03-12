@@ -4,18 +4,32 @@ This is just a personal repository, not some fancy piece of code. It'll just be 
 
 ## Fedora configure
 
-To install my config, just copy and past this in terminal
+It is my fedora configures, that install my pip packages, gnome styles, flatpak apps...
 
+To use this configures use copy and paste in terminal:
+```bash
+
+git clone https://github.com/Rafaelszc/my_configs.git
+
+cd my_configs/
+
+make fedora_config
+
+```
+Enjoy :))
+
+## Gitig
+
+`Gitig` is a CLI that get the gitignore template from the [github default gitignore templates](https://github.com/github/gitignore) and create a .gitignore file in the current directory
+
+To use this, copy and paste in terminal:
 ```bash
 git clone https://github.com/Rafaelszc/my_configs.git
-cd my_configs/linux
 
-chmod +x fedora_config.sh
+cd my_configs/
 
-./fedora_config.sh
+make gitig
 ```
-
-And accept or deny the options
 
 ## Contact-me
 
