@@ -19,7 +19,7 @@ def get_file(l: str):
     with open(file, "r") as file:
         gitignore = file.read()
 
-        with open(".gitignore", "w") as gitig:
+        with open(".gitignore", "a") as gitig:
             gitig.write(gitignore)
 
 if __name__=="__main__":
