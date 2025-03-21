@@ -177,21 +177,15 @@ rm -rf "$theme_name"
 
 # Installing vscode extensions
 
-for extension in "${VSCODE[@]}";
+for extension in "${VSCODE_EXTENSIONS[@]}";
 do
 	flatpak run com.visualstudio.code --install-extension "$extension"
 done
 
 # Installing Anaconda
 
-wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
-
 chmod +x Anaconda3-2024.10-1-Linux-x86_64.sh
 
 ./Anaconda3-2024.10-1-Linux-x86_64.sh
 
 rm -rf /Anaconda3-2024.10-1-Linux-x86_64.sh
-
-# Reboot the computer
-
-reboot
