@@ -164,6 +164,20 @@ do
 	install_extension "$extension"
 done
 
+EXT_LIST_URL="https://github.com/tuberry/extension-list.git"
+
+git clone "$EXT_LIST_URL"
+
+ext_list_reponame=$(get_repo_name "$EXT_LIST_URL")
+
+cd "$ext_list_reponame"
+
+meson setup build && meson install -C build
+
+cd ..
+
+rm -rf "$ext_list_reponame"
+
 # Installing GNOME theme
 
 git clone "$THEME_URL"
