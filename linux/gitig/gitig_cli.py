@@ -3,9 +3,10 @@ from glob import glob
 import sys
 
 @click.command()
-@click.option("-l", help="Language compatible to gitignore")
-def get_file(l: str):
-    l = l.title().strip()
+@click.option("-l", type=str, default=None, help="Language compatible to gitignore")
+@click.argument("lang", type=str, required=False)
+def get_file(l: str, lang: str):
+    l = l.title().strip() if l != None else lang.title().strip()
 
     templates_path = sys.argv[0].replace("gitig_cli.py", "templates")
 
