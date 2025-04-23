@@ -148,6 +148,12 @@ sudo dnf update -y
 
 pip install "${PIP_PACKAGES[@]}"
 
+# Installing Flatpak Flathub if doesnt exists
+
+sudo dnf install flatpak
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Installing Flatpak programs
 
 for program in "${FLATPAK_PROGRAMS[@]}";
