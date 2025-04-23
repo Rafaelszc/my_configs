@@ -165,7 +165,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 for program in "${FLATPAK_PROGRAMS[@]}";
 do
-	flatpak install "$program"
+	flatpak install flathub "$program"
 done
 
 # Installing GNOME extensions
