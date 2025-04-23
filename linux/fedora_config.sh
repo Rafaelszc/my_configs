@@ -109,7 +109,14 @@ install_extension () {
 
 	git clone "$1"
 	cd "$reponame"
-	make all
+
+	if ! ls | grep -q "meson.build";
+	then
+		make install
+	else
+		meson setup build && meson install -C build
+	fi
+
 	cd ..
 	rm -rf "$reponame"
 }
@@ -169,20 +176,6 @@ for extension in "${GNOME_EXTENSIONS[@]}";
 do
 	install_extension "$extension"
 done
-
-EXT_LIST_URL="https://github.com/tuberry/extension-list.git"
-
-git clone "$EXT_LIST_URL"
-
-ext_list_reponame=$(get_repo_name "$EXT_LIST_URL")
-
-cd "$ext_list_reponame"
-
-meson setup build && meson install -C build
-
-cd ..
-
-rm -rf "$ext_list_reponame"
 
 # Installing GNOME theme
 
