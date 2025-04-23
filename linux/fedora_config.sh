@@ -201,11 +201,3 @@ for extension in "${VSCODE_EXTENSIONS[@]}";
 do
 	flatpak run com.visualstudio.code --install-extension "$extension"
 done
-
-# Installing Anaconda
-
-chmod +x Anaconda3-2024.10-1-Linux-x86_64.sh
-
-./Anaconda3-2024.10-1-Linux-x86_64.sh
-
-rm -rf /Anaconda3-2024.10-1-Linux-x86_64.sh
