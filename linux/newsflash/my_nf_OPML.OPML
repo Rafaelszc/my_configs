@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>NewsFlash OPML export</title>
+  </head>
+  <body>
+    <outline title="News" text="News">
+      <outline text="Backchannel Latest" xmlUrl="https://www.wired.com/feed/category/backchannel/latest/rss" htmlUrl="https://www.wired.com/" type="rss" title="Backchannel Latest" />
+      <outline type="rss" htmlUrl="https://www.404media.co/" title="404 Media" xmlUrl="https://www.404media.co/rss/" text="404 Media" />
+      <outline type="rss" htmlUrl="https://nucleo.jor.br/" title="Núcleo Jornalismo" text="Núcleo Jornalismo" xmlUrl="https://nucleo.jor.br/rss/" />
+      <outline text="Pluralistic: Daily links from Cory Doctorow" xmlUrl="https://pluralistic.net/feed/" title="Pluralistic: Daily links from Cory Doctorow" htmlUrl="https://pluralistic.net/" type="rss" />
+    </outline>
+    <outline text="Privacy" title="Privacy">
+      <outline text="The Proton VPN Blog" type="rss" xmlUrl="https://protonvpn.com/blog/feed" htmlUrl="https://protonvpn.com/blog/" title="The Proton VPN Blog" />
+      <outline type="rss" htmlUrl="https://www.evilsocket.net/" xmlUrl="https://www.evilsocket.net/atom.xml" text="evilsocket" title="evilsocket" />
+      <outline text="About Guardian Project on Guardian Project" htmlUrl="https://guardianproject.info/" title="About Guardian Project on Guardian Project" xmlUrl="https://guardianproject.info/index.xml" type="rss" />
+      <outline xmlUrl="https://www.eff.org/rss/updates.xml" type="rss" htmlUrl="https://www.eff.org/rss/updates.xml" title="Deeplinks" text="Deeplinks" />
+      <outline text="The Mullvad Blog" title="The Mullvad Blog" htmlUrl="https://www.mullvad.net/blog/" xmlUrl="https://mullvad.net/en/blog/feed/atom/" type="rss" />
+      <outline htmlUrl="https://simplex.chat/" xmlUrl="https://simplex.chat/feed.rss" title="SimpleX Chat Blog" text="SimpleX Chat Blog" type="rss" />
+      <outline text="Ghostery Blog" htmlUrl="https://www.ghostery.com/" type="rss" xmlUrl="https://www.ghostery.com/blog/rss.xml" title="Ghostery Blog" />
+      <outline type="rss" title="Privacy Guides" text="Privacy Guides" xmlUrl="https://www.privacyguides.org/articles/feed_rss_created.xml" htmlUrl="https://www.privacyguides.org/articles/" />
+      <outline title="Tor Project blog" htmlUrl="https://blog.torproject.org/" text="Tor Project blog" xmlUrl="https://blog.torproject.org/feed.xml" type="rss" />
+    </outline>
+    <outline text="Piracy" title="Piracy">
+      <outline text="Anna’s Blog" xmlUrl="https://annas-archive.org/blog/rss.xml" htmlUrl="https://annas-archive.li/blog/" type="rss" title="Anna’s Blog" />
+      <outline type="rss" xmlUrl="https://torrentfreak.com/feed/" htmlUrl="https://torrentfreak.com/" text="TorrentFreak" title="TorrentFreak" />
+    </outline>
+    <outline text="Linux" title="Linux">
+      <outline title="Diolinux" text="Diolinux" xmlUrl="https://diolinux.com.br/feed" type="rss" htmlUrl="https://diolinux.com.br/" />
+      <outline title="9to5Linux" xmlUrl="https://9to5linux.com/feed/atom" htmlUrl="https://9to5linux.com/" type="rss" text="9to5Linux" />
+      <outline text="Mike Blumenkrantz" type="rss" htmlUrl="https://www.supergoodcode.com/" title="Mike Blumenkrantz" xmlUrl="https://www.supergoodcode.com/feed.xml" />
+      <outline type="rss" text="OMG! Linux" xmlUrl="https://www.omglinux.com/feed/" title="OMG! Linux" htmlUrl="https://www.omglinux.com/" />
+      <outline xmlUrl="https://blog.vaxry.net/feed" type="rss" htmlUrl="https://blog.vaxry.net/" text="Vaxry&apos;s Blog" title="Vaxry&apos;s Blog" />
+      <outline title="Debian News" xmlUrl="https://www.debian.org/News/news" text="Debian News" type="rss" htmlUrl="https://www.debian.org/News/" />
+      <outline type="rss" htmlUrl="https://news.itsfoss.com/" title="It&apos;s FOSS News" xmlUrl="https://news.itsfoss.com/latest/rss/" text="It&apos;s FOSS News" />
+      <outline htmlUrl="https://archlinux.org/news/" xmlUrl="https://archlinux.org/feeds/news/" text="Arch Linux: Recent news updates" type="rss" title="Arch Linux: Recent news updates" />
+      <outline title="Fedora Magazine" type="rss" htmlUrl="https://fedoramagazine.org/" text="Fedora Magazine" xmlUrl="https://fedoramagazine.org/feed/" />
+      <outline type="rss" title="Hyprland News" htmlUrl="https://hyprland.org/news" xmlUrl="https://hyprland.org/rss.xml" text="Hyprland News" />
+      <outline title="Ente - Feed" htmlUrl="https://ente.io/" type="rss" text="Ente - Feed" xmlUrl="https://ente.io/rss.xml" />
+      <outline htmlUrl="https://vanillaos.org/blog/" type="rss" xmlUrl="https://vanillaos.org/feed.xml" text="Vanilla OS Blog" title="Vanilla OS Blog" />
+      <outline htmlUrl="https://pi-hole.net/" type="rss" title="Pi-hole" text="Pi-hole" xmlUrl="https://pi-hole.net/feed/" />
+    </outline>
+    <outline text="Security" title="Security">
+      <outline xmlUrl="https://linuxpatch.com/news/feed" htmlUrl="https://linuxpatch.com/" text="LinuxPatch: Latest Security News" title="LinuxPatch: Latest Security News" type="rss" />
+      <outline text="The Hacker News" xmlUrl="https://feeds.feedburner.com/TheHackersNews" htmlUrl="https://thehackernews.com/" type="rss" title="The Hacker News" />
+      <outline title="Have I Been Pwned" xmlUrl="https://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches" type="rss" htmlUrl="https://haveibeenpwned.com/" text="Have I Been Pwned" />
+      <outline text="LinuxPatch: Latest Updates Releases News" type="rss" htmlUrl="https://linuxpatch.com/" title="LinuxPatch: Latest Updates Releases News" xmlUrl="https://linuxpatch.com/updates/feed" />
+      <outline title="Security Latest" type="rss" text="Security Latest" xmlUrl="https://www.wired.com/feed/category/security/latest/rss" htmlUrl="https://www.wired.com/" />
+      <outline htmlUrl="https://linuxpatch.com/" title="LinuxPatch: Latest CVE Vulnerabilities" text="LinuxPatch: Latest CVE Vulnerabilities" type="rss" xmlUrl="https://linuxpatch.com/cve/feed" />
+    </outline>
+    <outline text="Science" title="Science">
+      <outline xmlUrl="https://www.wired.com/feed/category/science/latest/rss" text="Science Latest" type="rss" htmlUrl="https://www.wired.com/" title="Science Latest" />
+    </outline>
+    <outline text="Tech" title="Tech">
+      <outline title="Network World" xmlUrl="https://www.networkworld.com/feed/" type="rss" text="Network World" htmlUrl="https://www.networkworld.com/" />
+      <outline type="rss" text="Artificial Intelligence Latest" xmlUrl="https://www.wired.com/feed/tag/ai/latest/rss" htmlUrl="https://www.wired.com/" title="Artificial Intelligence Latest" />
+    </outline>
+    <outline title="Updates" text="Updates">
+      <outline type="rss" xmlUrl="https://www.qbittorrent.org/news_feed.atom" text="qBittorrent News" title="qBittorrent News" htmlUrl="https://www.qbittorrent.org/news" />
+      <outline title="Mihon" htmlUrl="https://github.com/mihonapp/mihon/releases" type="rss" xmlUrl="https://github.com/mihonapp/mihon/releases.atom" text="Mihon" />
+    </outline>
+  </body>
+</opml>
