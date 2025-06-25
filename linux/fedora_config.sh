@@ -90,6 +90,18 @@ VSCODE_EXTENSIONS=(
 	"yzhang.markdown-all-in-one"
 )
 
+UNTIL_PROGRAMS=(
+	"firefox.x86_64"
+	"gnome-weather.noarch"
+	"resctl-demo.x86_64"
+	"rhythmbox.x86_64"
+	"malcontent.x86_64"
+	"gnome-characters.x86_64"
+	"gnome-contacts.x86_64"
+	"gnome-tour.x86_64"
+	"elementary-camera.x86_64"
+)
+
 # Orchis Theme repo
 
 THEME_URL="https://github.com/vinceliuice/Orchis-theme.git"
@@ -116,6 +128,13 @@ install_extension () {
 
 	cd ..
 	rm -rf "$reponame"
+}
+
+uninstall_dnf_apps () {
+	for app in "${UNTIL_PROGRAMS[@]}";
+	do
+		sudo dnf remove "$app"
+	done
 }
 
 # Login configs
@@ -232,3 +251,7 @@ for extension in "${VSCODE_EXTENSIONS[@]}";
 do
 	flatpak run com.visualstudio.code --install-extension "$extension"
 done
+
+# Removing until default fedora apps
+
+uninstall_dnf_apps
