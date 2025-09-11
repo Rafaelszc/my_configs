@@ -157,7 +157,7 @@ get_email () {
 
 get_github_name () {
 	read -s -p "Type your github username: " GITHUB_NAME
-	
+
 	if [ -n "$GITHUB_NAME" ]
 	then
 		echo
@@ -193,6 +193,14 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'Open Terminal'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 
+# Getting email
+
+get_email
+
+# Getting GitHub username
+
+get_github_name
+
 # Creating ssh key
 
 ssh-keygen -t ed25519 -C "$EMAIL"
@@ -209,6 +217,8 @@ sudo dnf install gh && gh auth login
 sudo dnf update -y
 
 # Installing python pip packages
+
+sudo dnf install pip
 
 pip install "${PIP_PACKAGES[@]}"
 
@@ -228,6 +238,8 @@ done
 # Installing GNOME extensions
 
 sudo dnf install gnome-extensions-app
+
+sudo dnf install meson
 
 for extension in "${GNOME_EXTENSIONS[@]}";
 do
