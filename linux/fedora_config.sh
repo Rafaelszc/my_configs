@@ -100,6 +100,7 @@ UNTIL_PROGRAMS=(
 	"gnome-contacts.x86_64"
 	"gnome-tour.x86_64"
 	"elementary-camera.x86_64"
+	"gnome-maps.x86_64"
 )
 
 # Orchis Theme repo
