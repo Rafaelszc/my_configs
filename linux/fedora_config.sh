@@ -9,6 +9,10 @@
 # Github: https://github.com/Rafaelszc
 #
 
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Pyhton pip packages
 
 PIP_PACKAGES=(
@@ -110,31 +114,86 @@ THEME_URL="https://github.com/vinceliuice/Orchis-theme.git"
 # Functions to install some things
 
 get_repo_name () {
-        reponame=$(basename "$1" .git)
-        echo $reponame
+	local reponame
+	reponame=$(basename "$1" .git)
+	echo "$reponame"
 }
 
 install_extension () {
-	reponame=$(get_repo_name "$1")
+	local repo_url="$1"
+	local reponame
+	local temp_dir
+	reponame=$(get_repo_name "$repo_url")
+	temp_dir=$(mktemp -d)
 
-	git clone "$1"
-	cd "$reponame"
+	git clone --depth 1 "$repo_url" "$temp_dir/$reponame"
+	pushd "$temp_dir/$reponame" > /dev/null
 
-	if ! ls | grep -q "meson.build";
+	if [ -f "meson.build" ];
 	then
-		make install
+		meson setup build --prefix "$HOME/.local"
+		meson install -C build
 	else
-		meson setup build && meson install -C build
+		make install PREFIX="$HOME/.local"
 	fi
 
-	cd ..
-	rm -rf "$reponame"
+	popd > /dev/null
+	rm -rf "$temp_dir"
+}
+
+enable_installed_gnome_extensions () {
+	local extension_dir
+	local uuid
+
+	if ! command -v gnome-extensions > /dev/null 2>&1;
+	then
+		echo "gnome-extensions command not found; extensions were installed but not enabled."
+		return 0
+	fi
+
+	for extension_dir in "$HOME"/.local/share/gnome-shell/extensions/*;
+	do
+		[ -d "$extension_dir" ] || continue
+		uuid=$(basename "$extension_dir")
+
+		if ! gnome-extensions enable "$uuid" > /dev/null 2>&1;
+		then
+			echo "Could not enable $uuid automatically. Log out/in and enable it with GNOME Extensions."
+		fi
+	done
+}
+
+install_gnome_theme () {
+	local theme_name
+	local temp_dir
+	local installed_theme
+
+	temp_dir=$(mktemp -d)
+	theme_name=$(get_repo_name "$THEME_URL")
+
+	git clone --depth 1 "$THEME_URL" "$temp_dir/$theme_name"
+	pushd "$temp_dir/$theme_name" > /dev/null
+	./install.sh -t purple -c dark -s compact -i simple --tweaks black
+	popd > /dev/null
+	rm -rf "$temp_dir"
+
+	installed_theme=$(find "$HOME/.themes" "$HOME/.local/share/themes" /usr/share/themes \
+		-maxdepth 1 -type d -name "Orchis*Purple*Dark*Compact*" 2> /dev/null | head -n 1)
+
+	if [ -n "$installed_theme" ];
+	then
+		gsettings set org.gnome.desktop.interface gtk-theme "$(basename "$installed_theme")"
+	fi
+}
+
+install_gitig_shell_integration () {
+	"$SCRIPT_DIR/gitig/gitig_func.sh"
 }
 
 uninstall_dnf_apps () {
 	for app in "${UNTIL_PROGRAMS[@]}";
 	do
-		sudo dnf remove "$app"
+		sudo dnf remove -y "$app"
 	done
 }
 
@@ -211,7 +270,7 @@ ssh-keygen -t ed25519 -C "$EMAIL"
 git config --global user.email "$EMAIL"
 git config --global user.name "$GITHUB_NAME"
 
-sudo dnf install gh && gh auth login
+sudo dnf install -y gh fish && gh auth login
 
 # Updating system
 
@@ -219,13 +278,13 @@ sudo dnf update -y
 
 # Installing python pip packages
 
-sudo dnf install pip
+sudo dnf install -y python3-pip
 
-pip install "${PIP_PACKAGES[@]}"
+python3 -m pip install --user "${PIP_PACKAGES[@]}"
 
 # Installing Flatpak Flathub if doesnt exists
 
-sudo dnf install flatpak
+sudo dnf install -y flatpak
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -233,30 +292,27 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 for program in "${FLATPAK_PROGRAMS[@]}";
 do
-	flatpak install flathub "$program"
+	flatpak install -y flathub "$program"
 done
 
 # Installing GNOME extensions
 
-sudo dnf install gnome-extensions-app
-
-sudo dnf install meson
+sudo dnf install -y git make meson ninja-build gettext glib2-devel gnome-extensions-app sassc gtk-murrine-engine gnome-themes-extra
 
 for extension in "${GNOME_EXTENSIONS[@]}";
 do
 	install_extension "$extension"
 done
 
+enable_installed_gnome_extensions
+
 # Installing GNOME theme
 
-git clone "$THEME_URL"
+install_gnome_theme
 
-theme_name=$(get_repo_name "$THEME_URL")
+# Installing gitig for Bash and Fish
 
-cd "$theme_name"
-./install.sh -t purple -c dark -s compact -i simple --tweaks black
-cd ..
-rm -rf "$theme_name"
+install_gitig_shell_integration
 
 # Installing vscode extensions
 
