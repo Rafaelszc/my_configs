@@ -272,6 +272,10 @@ git config --global user.name "$GITHUB_NAME"
 
 sudo dnf install -y gh fish && gh auth login
 
+# Set Y as default confirm option
+
+sudo dnf config-manager setopt defaultyes=True
+
 # Updating system
 
 sudo dnf update -y
@@ -292,7 +296,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 for program in "${FLATPAK_PROGRAMS[@]}";
 do
-	flatpak install -y flathub "$program"
+	flatpak install flathub "$program"
 done
 
 # Installing GNOME extensions
